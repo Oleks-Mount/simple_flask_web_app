@@ -1,0 +1,42 @@
+	<!DOCTYPE html>
+
+	<link rel=stylesheet type = text/css href="{{url_for('static', filename = 'style.css')}}">
+<html>
+<div class="all">
+  <head>
+
+<div class = menu>
+	<a class = "p1" href = "{{url_for('show_post')}}">Home</a>
+	<a class = "p1" href = "{{url_for('add_form')}}">Create</a>
+	{%if not session.Logged_in %}
+	<a  href = "{{url_for('login')}}">Log</a>
+	{% endif %}
+	{% if  session.Logged_in%}
+	<a href = "{{url_for('logout')}}">Logout</a>
+	{% endif %}
+</div>
+</head>
+<body>
+	{% for title,text in entries %}
+<div class="k02">
+		<ul class = "list_1">
+		<li ><p  class="f1">{{title}}</p></li>
+		<li ><p class="f2">{{text|safe}}</li>
+		<li align = "center"><form action = {{url_for('delete')}} method = post><input  type ="submit"  class = "button" value = "delete" >
+		</form>
+		</li>
+	</ul>
+	</div>
+	{% endfor %}
+
+</body>
+</div>
+
+<footer>
+	<p align="center" class="text-foto">My mama always said, life was like a box of chocolates. You never know what you gonna get.</p>
+	</footer>
+</html>
+	
+	
+	
+	

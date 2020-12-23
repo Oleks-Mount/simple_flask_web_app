@@ -1,0 +1,132 @@
+html {background-color: #333;
+}
+body{ font-family: "Arial", sans-serif; 
+}
+
+.menu{
+float: right;
+background-color: #333;
+overflow: hidden;
+padding: 20px;
+}
+.menu:after {
+    content: ""; 
+    display: block; 
+    margin: 0 auto; 
+    width: 1000 px; 
+    padding-top: 45px;
+    border-bottom: 2px solid orange; 
+}
+.menu a{
+	float: left;
+	color: #f2f2f2;
+	text-align:center;
+	padding:14px 16px;
+	text-decoration:none;
+	font-size: 17px;
+}
+.menu a:hover{
+	background-color:;
+	color:orange;
+}
+
+.k02{
+		display: flex;
+		list-style: none;
+		}
+.list_1{
+	list-style: none;
+		}
+.f2{
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #C0C0C0;
+		border-radius: 12px;
+		padding: 25px;
+		box-sizing: content-box;
+}
+.f1{
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #C0C0C0;
+		border-radius: 12px;
+		height: 10px;
+		padding: 25px;
+		width: 80%;
+
+}
+p{
+		text-align: center;
+		color: #696969;
+}
+.set_form{
+			border: 2px solid grey;
+			border-radius: 2px;
+			margin-top: 5px;
+			margin-left: auto;
+			margin-right: auto; 
+}
+.div_flex{
+			display: flex;
+}
+
+.all{
+  	display: flex;
+  flex-direction: column;
+   justify-content: space-around;
+
+}
+input.top{
+  height:20px;
+  width:500px;
+      padding: 5px;
+}
+textarea.top{
+    height:100px;
+    width:500px;
+    padding: 5px;
+}
+.email{
+  display: flex;
+  align: center;
+  justify-content: center;
+}
+.text{
+  display: flex;
+  align: center;
+  justify-content: center;
+}
+input.button{
+  height:50px;
+  width:515px;
+  padding: 5px;
+}
+footer{
+		
+		background-color: gray;
+		border: 2px solid orange;
+		margin-top: 80px;
+		}
+div.button{
+  display: flex;
+  align: center;
+  justify-content: center;
+}
+input.top:focus{
+      border: 2px solid orange;
+
+}
+textarea.top:focus{
+
+    border: 2px solid orange;
+}
+.new3{
+	background-color: white;
+	border: 5px solid white;
+	width: 250px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 12px;
+	margin-top: 70px;
+}

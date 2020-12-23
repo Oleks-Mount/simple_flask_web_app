@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<div class="all">
+	<link rel=stylesheet type = text/css href="{{url_for('static', filename = 'style.css')}}">
+<head>
+	<div class = menu>
+	<a class = "p1" href = "{{url_for('show_post')}}">Home</a>
+	<a class = "p1" href = "{{url_for('add_form')}}">Create</a>
+	{%if not session.Logged_in %}
+	<a  href = "{{url_for('login')}}">Log</a>
+	{% endif %}
+	{% if  session.Logged_in%}
+	<a href = "{{url_for('logout')}}">Logout</a>
+	{% endif %}
+</div>
+</head>
+  <body>
+  	<div class="main">
+  		<h1 class = "email">Login</h1>
+	{% if error %}<p class = new3><strong>Error:</strong>{{ error}}{% endif %}
+	<form action = "{{url_for('login')}}" method=post>
+		<div>
+			<div class = "email">
+				<input  class = "top" type = text name=username placeholder="Login">
+			</div>
+		</div>
+		<div>
+			<div class ="email">
+				<input class = "top" type=password name=password placeholder="Password"> 
+			</div>
+			<div class = "button">
+				<input class = "button" type=submit value=Login>
+		    </div>
+		</div>
+	</form>
+	</div>
+</body>
+</div>
+</html>
+

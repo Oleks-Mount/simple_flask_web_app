@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<div class="all">
+<link rel=stylesheet type = text/css href="{{url_for('static', filename = 'style.css')}}">
+<head>
+<div class = menu>
+	<a class = "p1" href = "{{url_for('show_post')}}">Home</a>
+	<a class = "p1" href = "{{url_for('add_form')}}">Create</a>
+	{%if not session.Logged_in %}
+	<a  href = "{{url_for('login')}}">Log</a>
+	{% endif %}
+	{% if  session.Logged_in%}
+	<a href = "{{url_for('logout')}}">Logout</a>
+	{% endif %}
+</div>	
+</head>
+	<body>			
+    	<div class="main">
+    	
+    	{% if session['Logged_in']%}
+		<form action="{{url_for('add_entry')}}" method=post>
+			<div class="email">
+				<input class="top" type=text name=title placeholder="Title">
+			</div>
+			<div class="text">
+				<textarea class="top"  name=text placeholder="Text"></textarea>
+			</div>
+      		<div class="button">
+				<input class="button" type=submit value =Share>
+				{% endif%}
+			</div>
+      
+		</form>
+</div>
+	{% if not session.Logged_in %}
+	<div class="new3">
+		<h3>{% for message in get_flashed_messages() %}
+		{{message}}</br>
+	{% endfor %}</h3>	
+	</div>
+	{% endif %}
+      </body>
+  </div>
+</html>
