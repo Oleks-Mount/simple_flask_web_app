@@ -6,7 +6,7 @@ import jinja2
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-db = psycopg2.connect(dbname="#", user="#",password="#", host="127.0.0.1", port="5432")
+db = psycopg2.connect(dbname="#", user="#",password="#", host="#", port="5432")
 con = db.cursor()
 
 app.config.update(dict(
@@ -23,7 +23,7 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 @app.route('/')
 def show_post():
     p_db =  con
-    p_db.execute('select title, text from post;')
+    p_db.execute('select id ,title, text from post;')
     entries = con.fetchall()
     return render_template('main_page.html',entries=entries)
 
@@ -34,7 +34,7 @@ def add_form():
     flash('You need to log in')
     return render_template('create_post.html')
 
-
+# creating is possible only under the administrator
 @app.route('/add', methods=['POST'])
 def add_entry():
     p_db = con
@@ -67,13 +67,11 @@ def logout():
     return redirect(url_for('show_post'))
 
 
-# видалення записа (можливе без аунтифікації до адмін панелі)
+# removal is possible only under the administrator
 @app.route('/delete', methods =['POST'])
 def delete():
     p_db = con
-    # переписати
-    p_db.execute('delete from post where title = '';',
-                 (request.args.get('title')))
+    p_db.execute('delete from post where id = %s;',(request.form['id']))
     db.commit()
     flash('Was delete posted')
     return redirect(url_for('show_post'))

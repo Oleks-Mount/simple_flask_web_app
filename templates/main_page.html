@@ -17,14 +17,16 @@
 </div>
 </head>
 <body>
-	{% for title,text in entries %}
+	{% for id,title,text in entries %}
 <div class="k02">
 		<ul class = "list_1">
 		<li ><p  class="f1">{{title}}</p></li>
 		<li ><p class="f2">{{text|safe}}</li>
-		<li align = "center"><form action = {{url_for('delete')}} method = post><input  type ="submit"  class = "button" value = "delete" >
+			{% if session.Logged_in %}
+		<li align = "center"><form action = {{url_for('delete')}} method = post><input  type ="submit"  class = "button" value ={{id}} name="id">
 		</form>
 		</li>
+			{% endif %}
 	</ul>
 	</div>
 	{% endfor %}
